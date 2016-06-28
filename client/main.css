@@ -1,1 +1,32 @@
 /* CSS declarations go here */
+
+table {
+  width:70%;
+  /*width:700px;*/
+  table-layout: fixed;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tr {
+  height:20px;
+}
+
+td.very-high {
+  background-color: #FF0033;
+}
+
+td.high {
+  background-color: #FF6600;
+}
+
+td.med {
+  background-color: #FFFF00;
+}
+
+td.low {
+  background-color: #00FF33;
+}
