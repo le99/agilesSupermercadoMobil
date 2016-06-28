@@ -28,7 +28,15 @@ Template.body.helpers({
       return elem.row;
     });
     groups = _.map(groups, function(elem, key){
-      let row = _.sortBy(elem, function(e){
+      let row = _.map(elem, function(e){
+        e.risk_low = (e.risk === 'low');
+        e.risk_med = (e.risk === 'med');
+        e.risk_high = (e.risk === 'high');
+        e.risk_very_high = (e.risk === 'very-high');
+        return e;
+      });
+
+      row = _.sortBy(row, function(e){
         return e.col;
       });
       return row;
@@ -38,7 +46,6 @@ Template.body.helpers({
     });
     console.log(groups);
     return groups;
-    // return [['very-high', 'high', 'med'],
-    //         ['low', 'low', 'low']];
  },
+
 });

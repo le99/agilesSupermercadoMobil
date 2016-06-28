@@ -1,20 +1,22 @@
 <body>
   <h1>Zonas inseguras</h1>
 
-  <p>
-    {{zonasInseguras}}
-  </p>
   <table>
 
-    <tr>
-      <td class="very-high"></td>
-      <td class="high"></td>
-      <td class="med"></td>
-    </tr>
-    <tr>
-      <td class="low"></td>
-      <td class="low"></td>
-      <td class="low"></td>
-    </tr>
+    {{#each row in zonasInseguras}}
+      <tr>
+        {{#each col in row}}
+          <td class={{#if col.risk_low}}low
+                    {{else}}
+                      {{#if col.risk_med}} med
+                      {{else}}
+                        {{#if col.risk_high}} high
+                        {{else}}very-high
+                        {{/if}}
+                      {{/if}}
+                    {{/if}}></td>
+        {{/each}}
+      </tr>
+    {{/each}}
   </table>
 </body>
