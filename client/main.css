@@ -1,18 +1,14 @@
 /* CSS declarations go here */
 
 table {
-  width:70%;
+  /*width:70%;*/
   /*width:700px;*/
-  table-layout: fixed;
+  /*table-layout: fixed;*/
 }
 
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
-}
-
-tr {
-  height:20px;
 }
 
 td.very-high {

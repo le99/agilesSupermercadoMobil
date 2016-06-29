@@ -1,32 +1,13 @@
 import { Meteor } from 'meteor/meteor';
-import { ZonasInseguras } from '../imports/api/zonasinseguras.js';
-
+import { ProductosEnRiesgo } from '../imports/api/productosriesgo.js';
 
 
 const fillWithRandomData = function(){
-  const n_rows = 10;
-  const n_cols = 8;
+  const n_prod = 10;
 
-  for(let r = 0 ; r < n_rows; r++){
-    for(let c = 0 ; c < n_cols; c++){
-
-      let rand = Math.random();
-      let randRisk;
-      if(rand < 0.5){
-        randRisk = 'low';
-      }
-      else if(rand < 0.75){
-        randRisk = 'med';
-      }
-      else if(rand < 0.90){
-        randRisk = 'high';
-      }
-      else{
-        randRisk = 'very-high';
-      }
-      ZonasInseguras.update({row: r, col: c}, { $set:{risk: randRisk}}, {upsert:'true'});
-
-    }
+  for(let n = 0 ; n < n_prod; n++){
+    let rand = Math.random()*100;
+    ProductosEnRiesgo.update({id: n, tipo: "Tipo " + n, valor: 1000*(n+1)}, { $set:{prob_robo: rand}}, {upsert:'true'});
   }
 
 };

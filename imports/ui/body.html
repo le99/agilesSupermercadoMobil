@@ -1,8 +1,24 @@
 <body>
-  <h1>Zonas inseguras en el supermercado</h1>
+  <h1>Productos con mayor riesgo de robo</h1>
 
   <table>
+    <tr>
+      <th>Id</th>
+      <th>Tipo</th>
+      <th>Valor</th>
+      <th>Probabilidad de robo</th>
+    </tr>
+    {{#each prod in productosEnRiesgo}}
+      <tr>
+        <td>{{prod.id}}</td>
+        <td>{{prod.tipo}}</td>
+        <td>{{prod.valor}}$</td>
+        <td>{{prod.prob_robo}}%</td>
+      </tr>
+    {{/each}}
+  </table>
 
+  <!-- <table>
     {{#each row in zonasInseguras}}
       <tr>
         {{#each col in row}}
@@ -18,5 +34,5 @@
         {{/each}}
       </tr>
     {{/each}}
-  </table>
+  </table> -->
 </body>
